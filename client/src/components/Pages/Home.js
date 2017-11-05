@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
 
-class App extends Component {
+import AppContainer from '../AppContainer'
+
+import logoSrc from '../../images/pillowcoin_logo.png'
+
+export default class NotFound extends Component {
   // Initialize state
   state = { passwords: [] }
 
@@ -21,18 +24,27 @@ class App extends Component {
     const { passwords } = this.state;
 
     return (
-      <div className="App">
-        {/* Render the passwords if we have them */}
+      <AppContainer>
+        <div className="headerWrapper">
+          <div className="headerContainer">
+            <div className="headerLogo">
+              <img className="headerLogoImage"
+                src={logoSrc}
+                alt="Pillowcoin logo"
+              />
+            </div>
+            <div className="headerTitle">
+              pillowcoin
+            </div>
+            <div className="headerSubtitle">
+              Pillow's own cryptocurrency
+            </div>
+          </div>
+        </div>
         {passwords.length ? (
           <div>
-            <h1>5 Passwords.</h1>
+            <h1>5 Passwords</h1>
             <ul className="passwords">
-              {/*
-                Generally it's bad to use "index" as a key.
-                It's ok for this example because there will always
-                be the same number of passwords, and they never
-                change positions in the array.
-              */}
               {passwords.map((password, index) =>
                 <li key={index}>
                   {password}
@@ -46,7 +58,6 @@ class App extends Component {
             </button>
           </div>
         ) : (
-          // Render a helpful message otherwise
           <div>
             <h1>No passwords :(</h1>
             <button
@@ -56,9 +67,7 @@ class App extends Component {
             </button>
           </div>
         )}
-      </div>
+      </AppContainer>
     );
   }
 }
-
-export default App;
