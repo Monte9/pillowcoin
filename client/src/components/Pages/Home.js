@@ -2,27 +2,27 @@ import React, { Component } from 'react';
 
 import AppContainer from '../AppContainer'
 
+import Auth from '../../modules/Auth'
+
 import logoSrc from '../../images/pillowcoin_logo.png'
 
-export default class NotFound extends Component {
-  // Initialize state
-  state = { passwords: [] }
-
-  // Fetch passwords after first mount
+export default class Home extends Component {
   componentDidMount() {
-    this.getPasswords();
-  }
+    const { redirect, history } = this.props
 
-  getPasswords = () => {
-    // Get the passwords and store them in state
-    fetch('/api/passwords')
-      .then(res => res.json())
-      .then(passwords => this.setState({ passwords }));
+    switch(redirect) {
+      case 'logout':
+        Auth.deauthenticateUser();
+      default:
+        if (Auth.isUserAuthenticated()) {
+          history.replace('/dashboard');
+        } else {
+          history.replace('/');
+        }
+    }
   }
 
   render() {
-    const { passwords } = this.state;
-
     return (
       <AppContainer>
         <div className="headerWrapper">
@@ -41,32 +41,6 @@ export default class NotFound extends Component {
             </div>
           </div>
         </div>
-        {passwords.length ? (
-          <div>
-            <h1>5 Passwords</h1>
-            <ul className="passwords">
-              {passwords.map((password, index) =>
-                <li key={index}>
-                  {password}
-                </li>
-              )}
-            </ul>
-            <button
-              className="more"
-              onClick={this.getPasswords}>
-              Get More
-            </button>
-          </div>
-        ) : (
-          <div>
-            <h1>No passwords :(</h1>
-            <button
-              className="more"
-              onClick={this.getPasswords}>
-              Try Again?
-            </button>
-          </div>
-        )}
       </AppContainer>
     );
   }

@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import Auth from '../modules/Auth';
 
 import '../styles/App.css';
 
 import logoSrc from '../images/pillowcoin_logo.png'
 
 class AppContainer extends Component {
+  constructor() {
+    super();
+    localStorage.setItem('successMessage', '');
+  }
+
   render() {
     return (
       <div className="AppContainer">
@@ -20,9 +27,15 @@ class AppContainer extends Component {
             </div>
           </NavLink>
           <div className="navHeaderRight">
-            <NavLink activeClassName="navLinkActive" to="/login" className="navLink">
-              <div className="navHeaderButtons">Login</div>
-            </NavLink>
+            {Auth.isUserAuthenticated() ? (
+              <NavLink activeClassName="navLinkActive" to="/logout" className="navLink">
+                <div className="navHeaderButtons">logout</div>
+              </NavLink>
+              ) : (
+              <NavLink activeClassName="navLinkActive" to="/login" className="navLink">
+                <div className="navHeaderButtons">Login</div>
+              </NavLink>
+            )}
           </div>
         </div>
         <div className="appContent">

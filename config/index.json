@@ -1,0 +1,4 @@
+{
+  "db": "mongodb://pillowcoin:pillowcoin9@ds249605.mlab.com:49605/heroku_d7n82wvq",
+  "jwtSecret": "2sB39B8sKJjfh7s2hd3"
+}
