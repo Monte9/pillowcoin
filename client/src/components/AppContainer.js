@@ -32,8 +32,8 @@ class AppContainer extends Component {
                 <div className="navHeaderButtons">logout</div>
               </NavLink>
               ) : (
-              <NavLink activeClassName="navLinkActive" to="/login" className="navLink">
-                <div className="navHeaderButtons">Login</div>
+              <NavLink activeClassName="navLinkActive" to="/sign-in" className="navLink">
+                <div className="navHeaderButtons">Sign in</div>
               </NavLink>
             )}
           </div>

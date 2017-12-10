@@ -18,8 +18,13 @@
   src: url('../fonts/Martell-Light.otf');
 }
 
+@font-face {
+  font-family: 'Calibri';
+  src: url('../fonts/Calibri.ttf');
+}
+
 * {
-  font-family: 'GlacialIndifference';
+  font-family: 'Calibri';
 }
 
 ::selection {
@@ -31,6 +36,53 @@
 ::-webkit-scrollbar {
   width: 0px;
   background: rgba(255, 255, 255, 0);
+}
+
+h1, h2, h3, h4, h5 {
+  color: black;
+  letter-spacing: 0px;
+}
+
+h1 {
+  font-size: 42px;
+  line-height: 44px;
+}
+
+h2 {
+  font-size: 34px;
+  line-height: 38px;
+}
+
+h3 {
+  font-size: 28px;
+  line-height: 32px;
+  color: gray;
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 30px;
+  color: gray;
+  font-weight: 100;
+}
+
+h5 {
+  font-size: 20px;
+  line-height: 24px;
+  color: gray;
+}
+
+h6 {
+  font-size: 12px;
+  line-height: 16px;
+  color: gray;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+strong {
+  color: black;
 }
 
 .NoSelection {
@@ -110,6 +162,12 @@
   justify-content: flex-end;
 }
 
+@media only screen and (max-width: 420px) {
+  .navHeaderRight {
+    margin-right: 10px;
+  }
+}
+
 .navHeaderButtons {
   font-family: 'AdventPro-ExtraLight';
   font-size: 18px;
@@ -179,7 +237,7 @@
 
 .appContent {
   min-height: 85vh;
-  background-color: rgba(242, 242, 242, 1);
+  background-color: white;
 }
 
 .headerWrapper {
@@ -321,6 +379,198 @@
 .successMessage {
   padding: 0 16px;
   color: green;
+}
+
+.metaMaskContainer {
+  display: flex;
+  min-height: 80vh;
+  justify-content: center;
+}
+
+.metaMaskView {
+  width: 60%;
+  height: 90%;
+  text-align: center;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  align-items: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .metaMaskView {
+    width: 90%;
+  }
+}
+
+.metaMaskButtonContainer {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.metaMaskButton {
+  width: 180px;
+  height: 60px;
+  background-color: #35478C;
+  margin: 20px;
+  border-radius: 5px;
+  color: white;
+  font-size: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  text-decoration: none;
+}
+
+.installed {
+  width: 220px;
+}
+
+.metaMaskButton:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 5px 10px 5px #C7C7C7;
+}
+
+.profileImageContainer {
+  display: flex;
+  width: 100%;
+  height: 170px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profileImage {
+  width: 82px;
+  height: 82px;
+  border-radius: 41px;
+  margin-top: 20px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.profileImage:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 5px 10px 5px #C7C7C7;
+}
+
+.youtubeContainer {
+  margin: 20px 0px;
+}
+
+.mainNetworkImage {
+  max-width: 100%;
+  height: auto;
+  border-style: none;
+}
+
+.lockedMetaMaskImage {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+@-webkit-keyframes spaceboots {
+	0% { -webkit-transform: translate(4px, 2px) rotate(0deg); }
+	10% { -webkit-transform: translate(-2px, -4px) rotate(-3deg); }
+	20% { -webkit-transform: translate(-6px, 0px) rotate(3deg); }
+	30% { -webkit-transform: translate(0px, 4px) rotate(0deg); }
+	40% { -webkit-transform: translate(2px, -2px) rotate(3deg); }
+	50% { -webkit-transform: translate(-2px, 4px) rotate(-3deg); }
+	60% { -webkit-transform: translate(-6px, 2px) rotate(0deg); }
+	70% { -webkit-transform: translate(4px, 2px) rotate(-3deg); }
+	80% { -webkit-transform: translate(-2px, -2px) rotate(3deg); }
+	90% { -webkit-transform: translate(4px, 4px) rotate(0deg); }
+	100% { -webkit-transform: translate(2px, -4px) rotate(-3deg); }
+}
+
+.lockedMetaMaskImage:hover,
+.lockedMetaMaskImage:focus {
+  animation-name: spaceboots;
+	-webkit-animation-name: spaceboots;
+	-webkit-animation-duration: 0.2s;
+	-webkit-transform-origin: 70% 70%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.inputContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputContainerInner {
+  display: flex;
+  flex-direction: column;
+  width: 660px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .inputContainerInner {
+    width: 100%;
+  }
+}
+
+.inputGroupContainer {
+  width: 95%;
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.inputGroupLabel {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 18px;
+  color: rgb(130, 129, 125);
+  line-height: 1.5;
+}
+
+.inputGroupInput {
+  width: 90%;
+  height: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 17px;
+  color: black;
+  border-radius: 5px;
+  margin-top: 0px;
+  border-color: rgb(225, 224, 221);
+}
+
+.readOnly {
+  background-color: rgb(240, 238, 234)
+}
+
+.metaMaskNoteContainer {
+  width: 100%;
+  max-width: 750px;
+  border-radius: 5px;
+  border: .1rem solid #35478C;
+  background-color: white;
+  min-height: 100px;
+  margin: 60px 0 20px;
+  background-color: #D8E5F3;
+}
+
+.metaMaskNoteLabel {
+  font-size: 22px;
+  color: #35478C;
+  margin: 20px;
 }
 
 @media only screen and (max-width: 450px) {
