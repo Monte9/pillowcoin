@@ -216,7 +216,7 @@ export default class MetaMask extends Component {
   displayUnlockeMetaMask() {
     const { status, message } = this.state.network
 
-    if (status !== 4) {
+    if (status !== 0) {
       return this.switchToMainNetworkMessage(message)
     } else {
       return (
@@ -246,7 +246,7 @@ export default class MetaMask extends Component {
     const { account, email, name, network, profile_image, title, index } = this.state
     const { status, message } = network
 
-    if (status !== 4) {
+    if (status !== 0) {
       return this.switchToMainNetworkMessage(message)
     } else {
       return (
