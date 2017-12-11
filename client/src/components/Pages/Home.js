@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import AppContainer from '../AppContainer'
+import DashboardStats from '../Shared/DashboardStats'
 
 import Auth from '../../modules/Auth'
 
@@ -42,6 +43,7 @@ export default class Home extends Component {
             </div>
           </div>
         </div>
+        <DashboardStats />
       </AppContainer>
     );
   }

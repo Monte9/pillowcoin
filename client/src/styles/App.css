@@ -81,8 +81,37 @@ h6 {
   letter-spacing: 1px;
 }
 
+h7 {
+  font-size: 34px;
+  line-height: 38px;
+  font-weight: 100px;
+}
+
+h10 {
+  font-size: 16px;
+  line-height: 0px;
+  color: gray;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+}
+
 strong {
   color: black;
+}
+
+.customLineHeight {
+  line-height: 20px;
+}
+
+.borderLeftRight {
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-color: rgb(209, 217, 228);
+  border-style: solid;
+  border-top: 0;
+  border-bottom: 0;
 }
 
 .NoSelection {
@@ -237,7 +266,7 @@ strong {
 
 .appContent {
   min-height: 85vh;
-  background-color: white;
+  background-color: rgb(241, 245, 249);
 }
 
 .headerWrapper {
@@ -379,6 +408,200 @@ strong {
 .successMessage {
   padding: 0 16px;
   color: green;
+}
+
+.dashboardContainer {
+  display: flex;
+  min-height: 80vh;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.dashboardMainViewContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0px 40px;
+}
+
+.dashboardMainView {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  min-height: 460px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid rgb(209, 217, 228);
+  text-align: center;
+}
+
+.dashboardMainTopView {
+  flex: 0.1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.dashboardMainTopInfoView {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboardMainBottomView {
+  flex: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgb(209, 217, 228);
+}
+
+.dashboardSecondaryView {
+  display: flex;
+  width: 100%;
+  min-height: 350px;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -20px;
+  padding: 0px 0px 40px;
+}
+
+.dashboardDetailsView {
+  display: flex;
+  flex-direction: column;
+  width: 39%;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid rgb(209, 217, 228);
+  margin-right: 1%;
+}
+
+.dashboardDetailsHeaderView {
+  display: flex;
+  flex: 0.15;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid rgb(209, 217, 228);
+}
+
+.dashboardDetailsHeaderLabel {
+  font-size: 22px;
+  margin-left: 20px;
+  font-weight: 100px;
+}
+
+.dashboardDetailsAccountView {
+  display: flex;
+  flex-direction: row;
+  flex: 0.4;
+  align-items: center;
+}
+
+.dashboardDetailsAccountLogo {
+  display: flex;
+  flex: 0.1;
+  width: 50px;
+  width: 50px;
+  border-radius: 25px;
+  padding: 0 10px 0 20px;
+}
+
+.dashboardDetailsAccountName {
+  display: flex;
+  flex: 0.5;
+  justify-content: flex-start;
+  font-size: 22px;
+  font-weight: 100px;
+  color: rgb(61, 71, 90);
+}
+
+.dashboardDetailsAccountValueView {
+  display: flex;
+  flex: 0.4;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.dashboardDetailsAccountValueLabel {
+  display: flex;
+  margin-top: 5px;
+  text-align: right;
+  justify-content: flex-end;
+  color: rgb(59,70,88);
+  font-size: 18px;
+}
+
+.gray2 {
+  color: rgb(137, 149, 163)
+}
+
+.gray3 {
+  color: rgb(59, 70, 88);
+}
+
+.dashboardDetailsActivityView {
+  display: flex;
+  flex-direction: column;
+  flex: 0.85;
+  align-items: center;
+  justify-content: center;
+}
+
+.activitySubtitle {
+  text-align: center;
+  margin-top: -20px;
+}
+
+.dashboardDetailsPaymentView {
+  display: flex;
+  flex-direction: row;
+  flex: 0.45;
+}
+
+.dashboardDetailsPaymentType {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paymentButton {
+  width: 180px;
+  height: 60px;
+  background-color: #60A672;
+  margin: 20px;
+  border-radius: 5px;
+  color: white;
+  font-size: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  text-decoration: none;
+}
+
+.blue {
+  background-color: #35478C;
+}
+
+.paymentButton:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 5px 10px 5px #C7C7C7;
+}
+
+.buttonIcon {
+  width: 35px;
+  height: 40px;
+  margin-right: 10px;
+  font-size: 35px;
+  text-align: center;
 }
 
 .metaMaskContainer {

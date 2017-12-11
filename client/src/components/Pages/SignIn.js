@@ -258,6 +258,7 @@ export default class MetaMask extends Component {
               <img className="profileImage"
                 src={profile_image}
                 onClick={this.toggleProfileImage.bind(this)}
+                alt={name}
               />
               <h6>{title}<br />{index + 1} / {employees.length}
               </h6>
