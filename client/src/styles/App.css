@@ -631,13 +631,14 @@ strong {
   height: 100px;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .metaMaskButton {
   width: 180px;
   height: 60px;
   background-color: #35478C;
-  margin: 20px;
+  margin: 10px 20px 20px 20px;
   border-radius: 5px;
   color: white;
   font-size: 21px;
@@ -776,6 +777,15 @@ strong {
 
 .readOnly {
   background-color: rgb(240, 238, 234)
+}
+
+.inputGroupErrorLabel {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 15px;
+  color: red;
+  line-height: 1.5;
+  margin: 5px 0 0 5px;
 }
 
 .metaMaskNoteContainer {

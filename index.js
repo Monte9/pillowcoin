@@ -41,6 +41,6 @@ app.get('*', (req, res) => {
 });
 
 // start the server
-app.listen(process.env.PORT || 5000, function () {
-  console.log(`pillowcoin is listening on http://localhost:5000 or https://pillowcoin.herokuapp.com/`);
+app.listen(process.env.PORT || 3000, function () {
+  console.log(`pillowcoin is listening on http://localhost:3000 or https://pillowcoin.herokuapp.com/`);
 });

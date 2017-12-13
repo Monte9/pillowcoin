@@ -5,6 +5,8 @@ import AppContainer from '../AppContainer'
 import DashboardStats from '../Shared/DashboardStats'
 
 import getWeb3 from '../../utils/getWeb3'
+import Auth from '../../modules/Auth'
+
 import pillowcoin_artifacts from '../../money/build/contracts/Pillowcoin.json'
 import logoSrc from '../../images/pillowcoin_logo.png'
 
@@ -23,6 +25,12 @@ export default class Dashboard extends Component {
   }
 
   componentDidMount() {
+    const { history } = this.props
+
+    if (!Auth.isUserAuthenticated()) {
+      history.replace('/sign-in');
+    }
+
     // Get initial balances of account
     var account = null;
     var account_balance = -1;

@@ -14,6 +14,8 @@ export default class Home extends Component {
     switch(redirect) {
       case 'logout':
         Auth.deauthenticateUser();
+        history.replace('/');
+
         break;
       default:
         if (Auth.isUserAuthenticated()) {

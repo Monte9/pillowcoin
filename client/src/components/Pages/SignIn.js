@@ -6,6 +6,7 @@ import AppContainer from '../AppContainer'
 
 import getWeb3 from '../../utils/getWeb3'
 import employees from '../../utils/employee'
+import Auth from '../../modules/Auth';
 
 import MainEthereumNetworkImage from '../../images/main-network.png'
 import LockedMetaMaskImage from '../../images/pillowcoin_logo_locked.png'
@@ -231,6 +232,61 @@ export default class MetaMask extends Component {
     }
   }
 
+  submitSignIn(event) {
+    // prevent default action. in this case, action is the form submission event
+    event.preventDefault();
+
+    let self = this;
+    let history = this.props.history;
+
+    const userName = this.state.name;
+    const userEmail = this.state.email;
+    const userPassword = this.state.account;
+    const userProfileImage = this.state.profile_image;
+    const userTitle = this.state.title;
+
+    // create a string for an HTTP body message
+    let user = 'name=' + encodeURIComponent(userName)
+      + '&email=' + encodeURIComponent(userEmail)
+      + '&password=' + encodeURIComponent(userPassword)
+      + '&image=' + encodeURIComponent(userProfileImage)
+      + '&title=' + encodeURIComponent(userTitle);
+
+    // create an AJAX request
+    let xhr = new XMLHttpRequest();
+    xhr.open('post', '/auth/signin');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.responseType = 'json';
+    xhr.onload = function () {
+      let state = {};
+
+      if (this.status === 200) {
+        // success
+        state.errorMessage = '';
+        state.errors = {};
+
+        // change the component state
+        self.setState(state);
+
+        // save the token
+        Auth.authenticateUser(this.response.token);
+
+        //save the user's email to the localStorage
+        localStorage.setItem('email', userEmail);
+
+        history.replace('/dashboard')
+      } else {
+        // failure
+        state.errorMessage = this.response.message;
+        state.errors = this.response.errors ? this.response.errors : {};
+
+        // change the component state
+        self.setState(state);
+      }
+    };
+    xhr.send(user);
+  }
+
   toggleProfileImage() {
     const { index } = this.state
     const updated_index = index + 1 < employees.length ? index + 1 : 0
@@ -243,12 +299,16 @@ export default class MetaMask extends Component {
   }
 
   displaySignInView() {
-    const { account, email, name, network, profile_image, title, index } = this.state
+    const { account, email, name, network, profile_image, title, index, errors, errorMessage } = this.state
     const { status, message } = network
 
     if (status !== 0) {
       return this.switchToMainNetworkMessage(message)
     } else {
+      console.log('====================================');
+      console.log(this.state);
+      console.log('====================================');
+
       return (
         <div className="metaMaskContainer">
           <div className="metaMaskView">
@@ -273,6 +333,7 @@ export default class MetaMask extends Component {
                     onChange={(event) => this.setState({ account: event.target.value })}
                     readOnly
                   />
+                  {errors && errors.password && <div className="inputGroupErrorLabel">{errors.password}</div>}
                 </div>
                 <div className="inputGroupContainer">
                   <div className="inputGroupLabel">Email</div>
@@ -281,6 +342,7 @@ export default class MetaMask extends Component {
                     placeholder="e.g.: unicorn@pillow.com" value={email} maxLength="70"
                     onChange={(event) => this.setState({ email: event.target.value })}
                   />
+                  {errors && errors.email && <div className="inputGroupErrorLabel">{errors.email}</div>}
                 </div>
                 <div className="inputGroupContainer">
                   <div className="inputGroupLabel">Name</div>
@@ -289,6 +351,7 @@ export default class MetaMask extends Component {
                     placeholder="e.g.: Pillow Unicorn" value={name} maxLength="30"
                     onChange={(event) => this.setState({ name: event.target.value })}
                   />
+                  {errors && errors.name && <div className="inputGroupErrorLabel">{errors.name}</div>}
                 </div>
               </div>
               <div className="metaMaskNoteContainer">
@@ -297,11 +360,10 @@ export default class MetaMask extends Component {
                 </div>
               </div>
               <div className="metaMaskButtonContainer">
-                <Link to={`/dashboard`} className="navLink">
-                  <div className="metaMaskButton installed">
-                    Save account info
-                  </div>
-                </Link>
+                {errorMessage && <div className="inputGroupErrorLabel">{errorMessage}</div>}
+                <div className="metaMaskButton installed" onClick={this.submitSignIn.bind(this)}>
+                  Save account info
+                </div>
               </div>
             </div>
           </div>
