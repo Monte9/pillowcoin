@@ -87,6 +87,12 @@ h7 {
   font-weight: 100px;
 }
 
+@media only screen and (max-width: 650px) {
+  h7 {
+    font-size: 28px;
+  }
+}
+
 h10 {
   font-size: 16px;
   line-height: 0px;
@@ -103,6 +109,17 @@ strong {
 
 .customLineHeight {
   line-height: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .customLineHeight {
+    font-size: 24px;
+    line-height: 10px;
+  }
+
+  .dashboardNumbersSubtitle {
+    display: none;
+  }
 }
 
 .borderLeftRight {
@@ -478,6 +495,30 @@ strong {
   margin-right: 1%;
 }
 
+@media only screen and (max-width: 650px) {
+  .dashboardDetailsView {
+    display: flex;
+    flex: 1;
+    width: 80%;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(209, 217, 228);
+    margin: 10px 0px;
+  }
+  .dashboardSecondaryView {
+    flex-direction: column;
+    min-height: 70px;
+    align-items: center;
+  }
+  .dashboardDetailsActivityView {
+    min-height: 250px;
+  }
+  .dashboardDetailsAccountView {
+    min-height: 80px;
+  }
+}
+
 .dashboardDetailsHeaderView {
   display: flex;
   flex: 0.15;
@@ -561,6 +602,12 @@ strong {
   flex: 0.45;
 }
 
+@media only screen and (max-width: 850px) {
+  .dashboardDetailsPaymentView {
+    flex-direction: column;
+  }
+}
+
 .dashboardDetailsPaymentType {
   flex: 1;
   display: flex;
@@ -569,8 +616,8 @@ strong {
 }
 
 .paymentButton {
-  width: 180px;
-  height: 60px;
+  width: 100%;
+  height: 35%;
   background-color: #60A672;
   margin: 20px;
   border-radius: 5px;
@@ -582,6 +629,12 @@ strong {
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 850px) {
+  .paymentButton {
+    min-height: 50px;
+  }
 }
 
 .blue {

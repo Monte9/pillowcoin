@@ -45,6 +45,12 @@ export default class MetaMask extends Component {
   }
 
   componentDidMount() {
+    const { history } = this.props
+
+    if (Auth.isUserAuthenticated()) {
+      history.replace('/dashboard');
+    }
+
     // Get network provider and web3 instance.
     getWeb3.then(results => {
 

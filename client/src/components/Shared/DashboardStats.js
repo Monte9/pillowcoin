@@ -10,15 +10,15 @@ export default class DashboardStats extends Component {
           <div className="dashboardMainTopView">
             <div className="dashboardMainTopInfoView">
               <h2 className="customLineHeight gray3">${current_price}</h2>
-              <h10>Pillowcoin price</h10>
+              <h10 className="dashboardNumbersSubtitle">Pillowcoin price</h10>
             </div>
             <div className="dashboardMainTopInfoView borderLeftRight">
               <h2 className="customLineHeight gray3">{total_coins}</h2>
-              <h10>Total pillowcoins</h10>
+              <h10 className="dashboardNumbersSubtitle">Total pillowcoins</h10>
             </div>
             <div className="dashboardMainTopInfoView">
               <h2 className="customLineHeight gray3">{user_count}</h2>
-              <h10>Users</h10>
+              <h10 className="dashboardNumbersSubtitle">Users</h10>
             </div>
           </div>
           <div className="dashboardMainBottomView gray3">
