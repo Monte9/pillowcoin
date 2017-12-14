@@ -78,7 +78,7 @@ export default class Dashboard extends Component {
     const { total_coins } = this.state
 
     return (
-      <AppContainer>
+      <AppContainer {...this.props}>
         <div className="dashboardContainer">
           <DashboardStats total_coins={total_coins} user_count={0} />
           <div className="dashboardSecondaryView">

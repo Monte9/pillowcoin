@@ -23,6 +23,11 @@
   src: url('../fonts/Calibri.ttf');
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 * {
   font-family: 'Calibri';
 }
@@ -206,6 +211,22 @@ strong {
   height: 15vh;
   margin-right: 40px;
   justify-content: flex-end;
+}
+
+.navHeaderAccountImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.navHeaderAccountImage:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.001);
+  -ms-transform: scale(1.001);
+  transform: scale(1.001);
+  box-shadow: 1px 2px 1px #35478C;
 }
 
 @media only screen and (max-width: 420px) {
@@ -576,7 +597,7 @@ strong {
 }
 
 .gray2 {
-  color: rgb(137, 149, 163)
+  color: rgb(137, 149, 163);
 }
 
 .gray3 {
@@ -856,6 +877,53 @@ strong {
   font-size: 22px;
   color: #35478C;
   margin: 20px;
+}
+
+.accountContainer {
+  display: flex;
+  min-height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.accountProfileImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accountDetailsContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.accountNameContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.accountNameLabel {
+  color: rgb(61, 71, 90);
+  line-height: 0px;
+}
+
+.accountAddressLabel {
+  font-size: 16px;
+  line-height: 5px;
+  color: gray;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 0px;
+  text-decoration: underline;
+}
+
+.accountAddressLabel:hover {
+  cursor: pointer;
+  color: rgb(137, 149, 163);
 }
 
 @media only screen and (max-width: 450px) {

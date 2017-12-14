@@ -6,6 +6,7 @@ import Auth from '../modules/Auth';
 import '../styles/App.css';
 
 import logoSrc from '../images/pillowcoin_logo.png'
+const UnicornProfileImage = "https://i.imgur.com/8j0JUUQ.png"
 
 class AppContainer extends Component {
   constructor() {
@@ -26,17 +27,30 @@ class AppContainer extends Component {
               pillowcoin
             </div>
           </NavLink>
-          <div className="navHeaderRight">
-            {Auth.isUserAuthenticated() ? (
+          {Auth.isUserAuthenticated() ? (
+            <div className="navHeaderRight">
+              {this.props.location && this.props.location.pathname === '/dashboard' ?
+                <NavLink activeClassName="navLinkActive" to="/account" className="navLink">
+                  <img className="navHeaderButtons navHeaderAccountImage"
+                    src={UnicornProfileImage}
+                    alt={"Unicorn profile picture"}
+                  />
+                </NavLink> :
+                <NavLink activeClassName="navLinkActive" to="/dashboard" className="navLink">
+                  <div className="navHeaderButtons">dash</div>
+                </NavLink>
+              }
               <NavLink activeClassName="navLinkActive" to="/logout" className="navLink">
                 <div className="navHeaderButtons">logout</div>
               </NavLink>
-              ) : (
+            </div>
+            ) : (
+            <div className="navHeaderRight">
               <NavLink activeClassName="navLinkActive" to="/sign-in" className="navLink">
                 <div className="navHeaderButtons">Sign in</div>
               </NavLink>
-            )}
-          </div>
+            </div>
+          )}
         </div>
         <div className="appContent">
           {this.props.children}
